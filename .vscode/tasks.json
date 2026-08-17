@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Upload project",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/upload.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Monitor ESP32",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/monitor.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Upload & Monitor",
+      "dependsOn": ["Upload project", "Monitor ESP32"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}
