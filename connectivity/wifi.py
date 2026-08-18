@@ -30,3 +30,9 @@ class WiFi:
             return None
 
         return self.wlan.ifconfig()[0]
+
+    def rssi(self):
+        if not self.wlan.isconnected():
+            return None
+
+        return self.wlan.status("rssi")
