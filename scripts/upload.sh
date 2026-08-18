@@ -24,4 +24,8 @@ mpremote connect "$DEVICE" mkdir :api 2>/dev/null || true
 mpremote connect "$DEVICE" cp api/__init__.py :api/__init__.py
 mpremote connect "$DEVICE" cp api/server.py :api/server.py
 
+mpremote connect "$DEVICE" mkdir :system 2>/dev/null || true
+mpremote connect "$DEVICE" cp system/__init__.py :system/__init__.py
+mpremote connect "$DEVICE" cp system/info.py :system/info.py
+
 echo "Project uploaded successfully."
