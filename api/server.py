@@ -3,8 +3,9 @@ import json
 
 
 class APIServer:
-    def __init__(self, sensor, host="0.0.0.0", port=80):
+    def __init__(self, sensor, system_info, host="0.0.0.0", port=80):
         self.sensor = sensor
+        self.system_info = system_info
         self.host = host
         self.port = port
 
@@ -51,6 +52,12 @@ class APIServer:
 
         if path == b"/api/sensors":
             data = self.sensor.read()
+
+            self.send_response(client, 200, data)
+            return
+
+        if path == b"/api/system":
+            data = self.system_info.get()
 
             self.send_response(client, 200, data)
             return
